@@ -1,0 +1,120 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__content">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <span class="footer__logo-icon">🏺</span>
+            <span class="footer__logo-text">Arqueologia Y restauracion de Monumentos</span>
+          </a>
+          <p class="footer__description">
+            Preservando la historia, restaurando el futuro. Expertos en arqueología y restauración de bienes culturales.
+          </p>
+        </div>
+        
+        <div class="footer__links">
+          <div class="footer__link-group">
+            <h3 class="footer__link-title">Navegación</h3>
+            <ul class="footer__link-list">
+              <li><a href="index.html" class="footer__link">Iniciofooter</a></li>
+              <li><a href="index.html#about" class="footer__link">Nosotros</a></li>
+              <li><a href="index.html#servicios" class="footer__link">Servicios</a></li>
+              <li><a href="proyectos.html" class="footer__link">Proyectos</a></li>
+              <li><a href="index.html#contacto" class="footer__link">Contacto</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer__link-group">
+            <h3 class="footer__link-title">Servicios</h3>
+            <ul class="footer__link-list">
+              <li><a href="#" class="footer__link">Restauración Arqueológica</a></li>
+              <li><a href="#" class="footer__link">Conservación Preventiva</a></li>
+              <li><a href="#" class="footer__link">Análisis Científico</a></li>
+              <li><a href="#" class="footer__link">Asesoramiento Técnico</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer__link-group">
+            <h3 class="footer__link-title">Contacto</h3>
+            <ul class="footer__link-list">
+              <li class="footer__contact-item">
+                <span class="footer__contact-icon">📍</span>
+                <span>Calle Arqueología 123, Ciudad Histórica</span>
+              </li>
+              <li class="footer__contact-item">
+                <span class="footer__contact-icon">📞</span>
+                <a href="tel:+34123456789">+34 123 456 789</a>
+              </li>
+              <li class="footer__contact-item">
+                <span class="footer__contact-icon">✉️</span>
+                <a href="mailto:info@arqueorestaura.com">info@arqueorestaura.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Facebook">
+            <span class="footer__social-icon">📱</span>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Twitter">
+            <span class="footer__social-icon">🐦</span>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <span class="footer__social-icon">📸</span>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn">
+            <span class="footer__social-icon">💼</span>
+          </a>
+        </div>
+        
+        <div class="footer__legal">
+          <p>&copy; 2023  Arqueologia Y restauracion de Monumentos. Todos los derechos reservados.</p>
+          <div class="footer__legal-links">
+            <a href="#" class="footer__legal-link">Política de Privacidad</a>
+            <a href="#" class="footer__legal-link">Términos de Servicio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Script para funcionalidades del footer
+document.addEventListener('DOMContentLoaded', function() {
+  // Smooth scroll para enlaces internos
+  const internalLinks = document.querySelectorAll('a[href^="#"]');
+  
+  internalLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerHeight = document.querySelector('.header') ? document.querySelector('.header').offsetHeight : 70;
+        const targetPosition = targetElement.offsetTop - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Cerrar menú móvil si está abierto
+        const mobileNav = document.querySelector('.header__nav');
+        const toggleButton = document.querySelector('.header__toggle');
+        
+        if (mobileNav && mobileNav.classList.contains('active')) {
+          mobileNav.classList.remove('active');
+          toggleButton.classList.remove('active');
+        }
+      }
+    });
+  });
+});
+</script>

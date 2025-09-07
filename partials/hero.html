@@ -1,0 +1,99 @@
+<section class="hero">
+  <div class="hero__background">
+    <div class="hero__image" aria-hidden="true"></div>
+    <div class="hero__overlay"></div>
+  </div>
+  
+  <div class="container">
+    <div class="hero__content">
+      <h1 class="hero__title">Preservando la Historia, <span class="hero__title-accent">Restaurando el Futuro</span></h1>
+      
+      <p class="hero__description">
+        Expertos en arqueología, conservación y restauración de bienes culturales. Trabajamos con museos, instituciones y coleccionistas para devolver su esplendor al patrimonio histórico.
+      </p>
+      
+      <div class="hero__buttons">
+        <a href="proyectos.html" class="btn btn-primary hero__btn">
+          <span class="hero__btn-icon">🔍</span>
+          Ver nuestros proyectos
+        </a>
+        <a href="#contacto" class="btn btn-outline hero__btn">
+          <span class="hero__btn-icon">📞</span>
+          Contactar ahora
+        </a>
+      </div>
+      
+      <div class="hero__features">
+        <div class="hero__feature">
+          <span class="hero__feature-icon">🏛️</span>
+          <span class="hero__feature-text">Más de 20 años de experiencia</span>
+        </div>
+        <div class="hero__feature">
+          <span class="hero__feature-icon">🌍</span>
+          <span class="hero__feature-text">Proyectos internacionales</span>
+        </div>
+        <div class="hero__feature">
+          <span class="hero__feature-icon">✅</span>
+          <span class="hero__feature-text">Certificados de calidad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <a href="#about" class="hero__scroll-indicator" aria-label="Desplazarse hacia abajo">
+    <span class="hero__scroll-arrow"></span>
+  </a>
+</section>
+
+<script>
+// Script específico del hero
+document.addEventListener('DOMContentLoaded', function() {
+  const heroSection = document.querySelector('.hero');
+  const scrollIndicator = document.querySelector('.hero__scroll-indicator');
+  
+  // Smooth scroll para el scroll indicator
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        const headerHeight = document.querySelector('.header') ? document.querySelector('.header').offsetHeight : 70;
+        const targetPosition = targetElement.offsetTop - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
+  
+  // Efecto parallax opcional
+  const setupParallax = function() {
+    if (!heroSection) return;
+    
+    const heroImage = heroSection.querySelector('.hero__image');
+    if (!heroImage) return;
+    
+    if (window.innerWidth < 768) return;
+    
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      
+      heroImage.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+    });
+  };
+  
+  // Inicializar parallax
+  setupParallax();
+  
+  // Reinit on resize
+  window.addEventListener('resize', function() {
+    setupParallax();
+  });
+});
+</script>

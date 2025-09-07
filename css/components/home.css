@@ -1,0 +1,307 @@
+/* Services Section */
+.services {
+    background-color: var(--color-white);
+}
+
+.services__intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-12);
+}
+
+.services__title {
+    font-size: var(--fs-3xl);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-4);
+}
+
+.services__subtitle {
+    font-size: var(--fs-lg);
+    color: var(--color-primary);
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.service-card {
+    background-color: var(--color-offwhite);
+    padding: var(--space-6);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-card__icon {
+    font-size: var(--fs-4xl);
+    margin-bottom: var(--space-4);
+}
+
+.service-card__title {
+    font-size: var(--fs-lg);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-3);
+}
+
+.service-card__description {
+    color: var(--color-dark-gray);
+    line-height: 1.6;
+}
+
+.services__cta {
+    text-align: center;
+}
+
+/* Featured Projects */
+.featured-projects {
+    background-color: var(--color-offwhite);
+}
+
+.featured-projects__intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-12);
+}
+
+.featured-projects__title {
+    font-size: var(--fs-3xl);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-4);
+}
+
+.featured-projects__subtitle {
+    font-size: var(--fs-lg);
+    color: var(--color-primary);
+}
+
+.featured-projects__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+    .featured-projects__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .featured-projects__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.project-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card__content {
+    padding: var(--space-6);
+}
+
+.project-card__category {
+    display: inline-block;
+    background-color: var(--color-accent-light);
+    color: var(--color-accent-dark);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--border-radius-full);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    margin-bottom: var(--space-3);
+}
+
+.project-card__title {
+    font-size: var(--fs-lg);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-3);
+}
+
+.project-card__description {
+    color: var(--color-dark-gray);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+}
+
+.project-card__link {
+    color: var(--color-accent);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.featured-projects__cta {
+    text-align: center;
+}
+
+/* Clients Section */
+.clients {
+    background-color: var(--color-white);
+}
+
+.clients__intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-12);
+}
+
+.clients__title {
+    font-size: var(--fs-3xl);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-4);
+}
+
+.clients__subtitle {
+    font-size: var(--fs-lg);
+    color: var(--color-primary);
+}
+
+.clients__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .clients__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .clients__grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.client-logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-offwhite);
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.client-logo:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Contact Section */
+.contact {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    color: var(--color-white);
+}
+
+.contact__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+    .contact__content {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+.contact__title {
+    font-size: var(--fs-3xl);
+    margin-bottom: var(--space-4);
+}
+
+.contact__description {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-8);
+    opacity: 0.9;
+}
+
+.contact__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.contact__detail {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.contact__icon {
+    font-size: var(--fs-xl);
+}
+
+.contact__form-container {
+    background-color: var(--color-white);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-lg);
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: var(--space-3);
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
