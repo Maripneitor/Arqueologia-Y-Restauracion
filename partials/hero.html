@@ -1,8 +1,14 @@
 <section class="hero">
-  <div class="hero__background">
+  <!-- Reemplazar el div .hero__image por un video -->
+<div class="hero__background">
+  <video class="hero__video" autoplay muted loop playsinline>
+    <source src="assets/videos/hero-background.mp4" type="video/mp4">
+    <source src="assets/videos/hero-background.webm" type="video/webm">
+    <!-- Fallback para navegadores que no soportan video -->
     <div class="hero__image" aria-hidden="true"></div>
-    <div class="hero__overlay"></div>
-  </div>
+  </video>
+  <div class="hero__overlay"></div>
+</div>
   
   <div class="container">
     <div class="hero__content">

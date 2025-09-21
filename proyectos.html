@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos -  Arqueologia Y restauracion de Monumentos</title>
+    <title>Proyectos - Arqueologia Y restauracion de Monumentos</title>
     <meta name="description" content="Galería de nuestros proyectos de arqueología y restauración. Descubre nuestro trabajo en preservación del patrimonio cultural.">
     
-    <!-- Preconexión para fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Hojas de estilo -->
     <link rel="stylesheet" href="./css/main.css">
-<script type="module" src="./js/main.js"></script>
 </head>
 <body>
-    <!-- Header importado -->
     <div id="header-container"></div>
     
     <main class="projects-page">
-        <!-- Hero específico para proyectos -->
         <section class="projects-hero section-padding">
             <div class="container">
                 <div class="projects-hero__content">
@@ -35,106 +29,41 @@
             </div>
         </section>
 
-        <!-- Galería de proyectos con efecto libro/papiro -->
-        <section class="book-gallery section-padding">
-            <div class="container">
-                <div class="book-gallery__intro">
-                    <h2 class="book-gallery__title">Galería de Proyectos</h2>
-                    <p class="book-gallery__subtitle">Desliza o usa los controles para navegar entre nuestros trabajos</p>
-                </div>
-
-                <div class="book-gallery__container">
-                    <div class="book-gallery__book" id="project-book">
-                        <!-- Las páginas se generarán dinámicamente con JavaScript -->
-                    </div>
-
-                    <div class="book-gallery__controls">
-                        <button class="book-gallery__control book-gallery__control--prev" id="prev-page" aria-label="Página anterior">
-                            <span>←</span>
-                        </button>
-                        
-                        <div class="book-gallery__counter">
-                            <span id="current-page">1</span> / <span id="total-pages">6</span>
-                        </div>
-                        
-                        <button class="book-gallery__control book-gallery__control--next" id="next-page" aria-label="Página siguiente">
-                            <span>→</span>
-                        </button>
-                    </div>
-                </div>
+        <section class="book-gallery section-padding ancient-papiro">
+          <div class="container">
+            <div class="book-gallery__intro">
+              <h2 class="book-gallery__title ancient-text">Galería de Proyectos</h2>
+              <p class="book-gallery__subtitle">Desliza o usa los controles para navegar entre nuestros trabajos.</p>
             </div>
+        
+            <div class="book-gallery__container ancient-scroll">
+              <div class="book-gallery__book" id="project-book">
+                </div>
+        
+              <div class="book-gallery__controls">
+                <button class="book-gallery__control" id="prev-page" aria-label="Página anterior">←</button>
+                <div class="book-gallery__counter">
+                  <span id="current-page">1</span> / <span id="total-pages">...</span>
+                </div>
+                <button class="book-gallery__control" id="next-page" aria-label="Página siguiente">→</button>
+              </div>
+            </div>
+          </div>
         </section>
 
-        <!-- Grid tradicional de proyectos (como alternativa en móviles) -->
         <section class="projects-grid section-padding">
             <div class="container">
                 <h2 class="projects-grid__title">Todos Nuestros Proyectos</h2>
-                
-                <div class="projects-grid__container" id="projects-grid">
-                    <!-- Los proyectos se cargarán dinámicamente -->
-                </div>
+                <div class="projects-grid__container" id="projects-grid-container">
+                    </div>
             </div>
         </section>
     </main>
     
-    <!-- Footer importado -->
     <div id="footer-container"></div>
     
-    <!-- Script específico para la galería de proyectos (cargado primero) -->
-    <script src="../js/components/proyectos.js"></script>
-    
-    <!-- Script principal -->
-    <script type="module" src="../js/main.js"></script>
-    
-    <!-- Cargar componentes -->
-    <script>
-        // Función para cargar componentes
-        async function loadComponent(componentId, filePath) {
-            try {
-                const response = await fetch(filePath);
-                const html = await response.text();
-                document.getElementById(componentId).innerHTML = html;
-                
-                // Ejecutar scripts dentro del componente
-                const scripts = document.getElementById(componentId).getElementsByTagName('script');
-                for (let script of scripts) {
-                    if (script.src) {
-                        const newScript = document.createElement('script');
-                        newScript.src = script.src;
-                        document.head.appendChild(newScript);
-                    } else {
-                        eval(script.innerHTML);
-                    }
-                }
-            } catch (error) {
-                console.error('Error loading component:', error);
-            }
-        }
-        
-        // Cargar componentes cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', function() {
-            const components = [
-                { id: 'header-container', file: './partials/header.html' },
-                { id: 'footer-container', file: '../partials/footer.html' }
-            ];
-            
-            components.forEach(comp => {
-                loadComponent(comp.id, comp.file);
-            });
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/components/proyectos.js"></script>
 
-            // Inicializar la galería de proyectos - AHORA SÍ EXISTE initProjectGallery
-            if (typeof initProjectGallery !== 'undefined') {
-                initProjectGallery();
-            } else {
-                console.error('initProjectGallery no está definido');
-                // Fallback: intentar inicializar después de un breve retraso
-                setTimeout(() => {
-                    if (typeof initProjectGallery !== 'undefined') {
-                        initProjectGallery();
-                    }
-                }, 100);
-            }
-        });
-    </script>
 </body>
 </html>

@@ -1,65 +1,21 @@
-<!-- Este es el elemento que se muestra en todos los html, es relativo y siempre sera el mismo -->
-
-
-<header class="header">
+<header class="header" id="header">
   <div class="container">
     <div class="header__content">
       <a href="index.html" class="header__logo">
-        <span class="header__logo-icon"></span>
-        <span class="header__logo-text">Arqueologia Y restauracion de Monumentos</span>
-        <span class="header__logo-subtitle"></span>
+        <span class="header__logo-icon">🏺</span>
+        <span class="header__logo-text">ArqueoRestaura</span>
       </a>
       
       <nav class="header__nav" id="header-nav">
         <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a href="index.html" class="header__nav-link">Inicio</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="index.html#about" class="header__nav-link">Nosotros</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="index.html#servicios" class="header__nav-link">Servicios</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="proyectos.html" class="header__nav-link">Proyectos</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="index.html#contacto" class="header__nav-link">Contacto</a>
-          </li>
+          <li class="header__nav-item"><a href="index.html" class="header__nav-link">Inicio</a></li>
+          <li class="header__nav-item"><a href="proyectos.html" class="header__nav-link">Proyectos</a></li>
+          <li class="header__nav-item"><a href="index.html#contacto" class="header__nav-link">Contacto</a></li>
         </ul>
-
-        <!-- Elementos adicionales del nav -->
-        <!--<div class="header__nav-extra">
-          <a href="tel:+34123456789" class="header__phone">
-            <span class="header__phone-icon">📞</span>
-            <span class="header__phone-text">+34 123 456 789</span>
-          </a>
-          <a href="#contacto" class="btn btn-primary header__cta">Solicitar Consulta</a>
-        </div>
       </nav>
-      -->
+      
       <div class="header__actions">
-        <!-- Búsqueda 
-        <button class="header__search-btn" id="search-toggle" aria-label="Abrir búsqueda">
-          <span class="header__search-icon">🔍</span>
-        </button>
--->
-        <!-- Idioma 
-        <div class="header__language">
-          <button class="header__language-btn" aria-label="Seleccionar idioma">
-            <span class="header__language-text">ES</span>
-            <span class="header__language-icon">▼</span>
-          </button>
-          <div class="header__language-dropdown">
-            <a href="#" class="header__language-option">EN</a>
-            <a href="#" class="header__language-option">FR</a>
-            <a href="#" class="header__language-option">DE</a>
-          </div>
-        </div>
--->
-        <!-- Toggle móvil -->
-        <button class="header__toggle" id="header-toggle" aria-label="Abrir menú">
+        <button class="header__toggle" id="header-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="header-nav">
           <span class="header__toggle-bar"></span>
           <span class="header__toggle-bar"></span>
           <span class="header__toggle-bar"></span>
@@ -67,20 +23,40 @@
       </div>
     </div>
   </div>
-
-  <!-- Búsqueda overlay -->
-  <div class="header__search-overlay" id="search-overlay">
-    <div class="container">
-      <div class="header__search-container">
-        <form class="header__search-form">
-          <input type="text" placeholder="Buscar proyectos, servicios..." class="header__search-input">
-          <button type="submit" class="header__search-submit">Buscar</button>
-        </form>
-        <button class="header__search-close" id="search-close" aria-label="Cerrar búsqueda">✕</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Barra de progreso de scroll -->
-  <div class="header__progress-bar" id="progress-bar"></div>
 </header>
+
+<script>
+  function initializeHeader() {
+    const header = document.getElementById('header');
+    const toggleButton = document.getElementById('header-toggle');
+    const nav = document.getElementById('header-nav');
+
+    if (!header || !toggleButton || !nav) {
+      console.error("Elementos del header no encontrados.");
+      return;
+    }
+
+    toggleButton.addEventListener('click', () => {
+      const isOpened = nav.classList.toggle('active');
+      toggleButton.classList.toggle('active');
+      toggleButton.setAttribute('aria-expanded', isOpened);
+      document.body.classList.toggle('no-scroll', isOpened);
+    });
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }
+
+  // Se ejecuta cuando el HTML de la página está listo.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeHeader);
+  } else {
+    initializeHeader();
+  }
+</script>

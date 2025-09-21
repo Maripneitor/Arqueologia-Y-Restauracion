@@ -1,3 +1,7 @@
+/* ============================================= */
+/* ESTILOS GENERALES (CÓDIGO 1)         */
+/* ============================================= */
+
 /* Projects Page Styles */
 .projects-page {
     padding-top: 70px; /* Compensar header fijo */
@@ -32,9 +36,42 @@
     opacity: 0.9;
 }
 
-/* Book Gallery */
+
+/* ============================================= */
+/* BOOK GALLERY CON TEMA PAPIRO (COMBINADO)  */
+/* ============================================= */
+
+/* Contenedor principal del libro con fondo y bordes de papiro */
 .book-gallery {
-    background-color: var(--color-offwhite);
+    background: linear-gradient(135deg, #f4e9d8 0%, #e8d9c0 100%);
+    border: 2px solid #d4c1a0;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Efecto de sombra superior para dar profundidad */
+.book-gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(212, 193, 160, 0.8), transparent);
+    z-index: 10;
+}
+
+/* Efecto de sombra inferior para dar profundidad */
+.book-gallery::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to top, rgba(212, 193, 160, 0.8), transparent);
+    z-index: 10;
 }
 
 .book-gallery__intro {
@@ -44,12 +81,12 @@
 
 .book-gallery__title {
     font-size: var(--fs-3xl);
-    color: var(--color-primary-dark);
+    color: #5d4037; /* Color de papiro */
     margin-bottom: var(--space-4);
 }
 
 .book-gallery__subtitle {
-    color: var(--color-primary);
+    color: #8d6e63; /* Color de papiro */
     font-size: var(--fs-lg);
 }
 
@@ -59,24 +96,31 @@
     margin: 0 auto;
 }
 
+/* Libro con perspectiva ajustada y margen */
 .book-gallery__book {
     position: relative;
     width: 100%;
     height: 500px;
-    perspective: 2000px;
-    margin: 0 auto var(--space-8);
+    perspective: 1500px;
+    margin: 40px auto var(--space-8);
 }
 
+/* Página del libro con estilo papiro */
 .book-gallery__page {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-xl);
-    border-radius: var(--border-radius-lg);
+    background: linear-gradient(135deg, #f9f3e9 0%, #f0e6d2 100%);
+    border: 1px solid #d4c1a0;
+    border-radius: 8px;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        inset 0 0 50px rgba(212, 193, 160, 0.3),
+        0 0 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.4, 0.1, 0.2, 1);
+    transition: transform 1.2s cubic-bezier(0.4, 0.1, 0.2, 1),
+                box-shadow 1.2s ease;
     display: flex;
     flex-direction: column;
 }
@@ -89,37 +133,51 @@
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(135deg, #f9f3e9 0%, #f0e6d2 100%); /* Fondo base papiro */
 }
 
+/* Fondo de la parte trasera de la página */
 .book-gallery__page-back {
     transform: rotateY(180deg);
     padding: var(--space-6);
-    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-offwhite) 100%);
+    background: linear-gradient(135deg, #e8d9c0 0%, #d4c1a0 100%);
 }
 
+/* Imagen con filtro sepia */
 .book-gallery__image {
     width: 100%;
     height: 60%;
     object-fit: cover;
+    filter: sepia(30%) brightness(95%) contrast(110%);
+    border-bottom: 2px solid #d4c1a0;
+    transition: filter 0.3s ease;
 }
 
+.book-gallery__image:hover {
+    filter: sepia(20%) brightness(100%) contrast(105%);
+}
+
+/* Contenido con borde para separar de la imagen */
 .book-gallery__content {
     padding: var(--space-6);
     flex: 1;
     display: flex;
     flex-direction: column;
+    border-left: 1px solid #d4c1a0; /* Añadido para desktop */
 }
 
 .book-gallery__project-title {
     font-size: var(--fs-2xl);
-    color: var(--color-primary-dark);
+    color: #5d4037;
     margin-bottom: var(--space-3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .book-gallery__project-category {
     display: inline-block;
-    background-color: var(--color-accent-light);
-    color: var(--color-accent-dark);
+    background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
+    color: #fff;
+    border: 1px solid #5d4037;
     padding: var(--space-1) var(--space-3);
     border-radius: var(--border-radius-full);
     font-size: var(--fs-sm);
@@ -128,7 +186,7 @@
 }
 
 .book-gallery__project-description {
-    color: var(--color-dark-gray);
+    color: #5d4037;
     line-height: 1.6;
     margin-bottom: var(--space-4);
     flex: 1;
@@ -139,13 +197,18 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    color: var(--color-accent);
     font-weight: 500;
-    transition: color var(--transition-fast);
+    color: #8d6e63;
+    border: 1px solid #8d6e63;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 .book-gallery__project-link:hover {
-    color: var(--color-accent-dark);
+    background: #8d6e63;
+    color: #fff;
+    transform: translateX(5px);
 }
 
 .book-gallery__back-content {
@@ -159,8 +222,10 @@
 
 .book-gallery__back-title {
     font-size: var(--fs-xl);
-    color: var(--color-primary-dark);
+    color: #5d4037;
     margin-bottom: var(--space-4);
+    border-bottom: 2px solid #8d6e63;
+    padding-bottom: 10px;
 }
 
 .book-gallery__back-list {
@@ -170,16 +235,18 @@
 
 .book-gallery__back-item {
     padding: var(--space-2) 0;
-    color: var(--color-primary);
+    color: #5d4037;
     position: relative;
     padding-left: var(--space-6);
+    border-left: 3px solid #8d6e63;
 }
 
+/* Se elimina el ::before original para no tener dos checkmarks */
 .book-gallery__back-item::before {
     content: '✓';
     position: absolute;
-    left: 0;
-    color: var(--color-accent);
+    left: 10px; /* Ajuste para el nuevo borde */
+    color: #8d6e63;
     font-weight: bold;
 }
 
@@ -194,19 +261,21 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: var(--color-accent);
     color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-normal);
-    border: 2px solid var(--color-accent);
+    background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
+    border: 2px solid #5d4037;
+    box-shadow: 0 4px 15px rgba(93, 64, 55, 0.3);
+    transition: all 0.3s ease;
 }
 
 .book-gallery__control:hover:not(:disabled) {
-    background-color: var(--color-white);
-    color: var(--color-accent);
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(93, 64, 55, 0.4);
+    color: var(--color-white); /* Asegurar color en hover */
+    background: linear-gradient(135deg, #a1887f 0%, #8d6e63 100%); /* Aclarar un poco en hover */
 }
 
 .book-gallery__control:disabled {
@@ -217,14 +286,17 @@
 .book-gallery__counter {
     font-size: var(--fs-lg);
     font-weight: 600;
-    color: var(--color-primary-dark);
+    color: #5d4037;
     min-width: 80px;
     text-align: center;
 }
 
-/* Projects Grid (para móviles) */
+/* ============================================= */
+/* PROJECTS GRID PARA MÓVILES (CÓDIGO 1)   */
+/* ============================================= */
+
 .projects-grid {
-    display: none; /* Oculto por defecto, se muestra en móviles mediante JS */
+    display: none; /* Oculto por defecto, se muestra en móviles */
 }
 
 .projects-grid__title {
@@ -308,7 +380,12 @@
     gap: var(--space-2);
 }
 
-/* Responsive Design */
+
+/* ============================================= */
+/* RESPONSIVE DESIGN (CÓDIGO 1 Y AJUSTES) */
+/* ============================================= */
+
+/* En pantallas pequeñas, se oculta la galería de libro y se muestra la cuadrícula */
 @media (max-width: 1023px) {
     .book-gallery {
         display: none;
@@ -319,6 +396,7 @@
     }
 }
 
+/* En pantallas grandes, se ajusta el libro para que la imagen y el texto estén lado a lado */
 @media (min-width: 1024px) {
     .book-gallery__book {
         height: 600px;
@@ -332,28 +410,66 @@
     .book-gallery__image {
         width: 50%;
         height: 100%;
+        border-bottom: none; /* Se quita el borde inferior */
+        border-right: 2px solid #d4c1a0; /* Se añade un borde derecho */
     }
     
     .book-gallery__content {
         width: 50%;
         height: 100%;
         padding: var(--space-8);
+        border-left: none; /* Se quita el borde izquierdo que ya no es necesario */
     }
 }
 
-/* Animations */
-@keyframes flipPage {
+
+/* ============================================= */
+/* NUEVAS ANIMACIONES Y CLASES EXTRA       */
+/* ============================================= */
+
+/* Animaciones de papiro para desenrollar y enrollar */
+@keyframes unrollPapiro {
     0% {
-        transform: rotateY(0deg);
+        transform: rotateY(-180deg) scaleX(0.8);
+        opacity: 0;
     }
     50% {
-        transform: rotateY(-90deg);
+        transform: rotateY(-90deg) scaleX(1);
+        opacity: 0.7;
     }
     100% {
-        transform: rotateY(-180deg);
+        transform: rotateY(0deg) scaleX(1);
+        opacity: 1;
     }
 }
 
-.flip-animation {
-    animation: flipPage 0.8s cubic-bezier(0.4, 0.1, 0.2, 1) forwards;
+@keyframes rollPapiro {
+    0% {
+        transform: rotateY(0deg) scaleX(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateY(-90deg) scaleX(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: rotateY(-180deg) scaleX(0.8);
+        opacity: 0;
+    }
+}
+
+/* Clases para ser usadas por JavaScript */
+.flip-animation-in {
+    animation: unrollPapiro 1.2s cubic-bezier(0.4, 0.1, 0.2, 1) forwards;
+}
+
+.flip-animation-out {
+    animation: rollPapiro 1.2s cubic-bezier(0.4, 0.1, 0.2, 1) forwards;
+}
+
+/* Clase extra para aplicar estilo de fuente antigua */
+.ancient-text {
+    font-family: 'Cormorant Garamond', serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
 }

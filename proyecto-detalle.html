@@ -3,275 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Proyecto -  Arqueologia Y restauracion de Monumentos</title>
+    <title>Detalle de Proyecto - Arqueologia Y restauracion de Monumentos</title>
     <meta name="description" content="Detalles del proyecto de restauración y conservación del patrimonio cultural.">
     
-    <!-- Preconexión para recursos externos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com">
     
-    <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Hojas de estilo -->
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/components/proyecto-detalle.css">
     
-    <!-- Preload para recursos críticos -->
-    <link rel="preload" href="https://via.placeholder.com/1600x900" as="image">
 </head>
 <body>
-    <!-- Header importado -->
     <div id="header-container"></div>
     
-    <main class="project-detail-page">
-        <!-- Breadcrumb -->
+    <main class="project-detail-page ancient-papiro">
         <nav class="breadcrumb section-padding-sm" aria-label="Migas de pan">
             <div class="container">
                 <a href="./index.html">Inicio</a>
                 <span aria-hidden="true"> / </span>
                 <a href="proyectos.html">Proyectos</a>
                 <span aria-hidden="true"> / </span>
-                <span id="current-project-title" aria-current="page">Detalle de Proyecto</span>
+                <span id="current-project-title" aria-current="page">Cargando...</span>
             </div>
         </nav>
 
-        <!-- Hero del proyecto -->
-        <section class="project-hero section-padding">
+        <section class="project-hero section-padding ancient-texture">
             <div class="container">
                 <div class="project-hero__content">
-                    <span class="project-hero__category" id="project-category">Arqueología</span>
-                    <h1 class="project-hero__title" id="project-title">Templo de las Inscripciones</h1>
-                    <p class="project-hero__description" id="project-description">
-                        Restauración integral del Templo de las Inscripciones en Palenque, México.
-                    </p>
+                    <span class="project-hero__category" id="project-category">Categoría</span>
+                    <h1 class="project-hero__title" id="project-title">Cargando Título del Proyecto...</h1>
+                    <p class="project-hero__description" id="project-description">Cargando descripción...</p>
                     
                     <div class="project-hero__meta">
                         <div class="project-meta">
-                            <span class="project-meta__icon" aria-hidden="true">📅</span>
-                            <span class="project-meta__text" id="project-year">2018-2020</span>
+                            <span class="project-meta__icon">📅</span>
+                            <span class="project-meta__text" id="project-year">...</span>
                         </div>
                         <div class="project-meta">
-                            <span class="project-meta__icon" aria-hidden="true">📍</span>
-                            <span class="project-meta__text" id="project-location">Palenque, México</span>
+                            <span class="project-meta__icon">📍</span>
+                            <span class="project-meta__text" id="project-location">...</span>
                         </div>
                         <div class="project-meta">
-                            <span class="project-meta__icon" aria-hidden="true">🏛️</span>
-                            <span class="project-meta__text" id="project-client">Museo Nacional de Antropología</span>
+                            <span class="project-meta__icon">🏛️</span>
+                            <span class="project-meta__text" id="project-client">...</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slider de Comparación (Antes/Después) -->
         <section class="comparison-slider section-padding" aria-labelledby="comparison-title">
             <div class="container">
                 <h2 id="comparison-title" class="comparison-slider__title">Transformación del Proyecto</h2>
-                <p class="comparison-slider__subtitle">Desliza para comparar el antes y después de nuestra intervención</p>
+                <p class="comparison-slider__subtitle">Desliza para comparar el antes y después</p>
                 
                 <div class="comparison-slider__container">
                     <div class="comparison-slider__wrapper">
-                        <img src="https://via.placeholder.com/800x450?text=Antes+de+Restauración" 
-                             alt="Estado antes de la restauración del Templo de las Inscripciones" 
-                             class="comparison-slider__img comparison-slider__img--before"
-                             width="800" height="450">
-                        <img src="https://via.placeholder.com/800x450?text=Después+de+Restauración" 
-                             alt="Estado después de la restauración del Templo de las Inscripciones" 
-                             class="comparison-slider__img comparison-slider__img--after"
-                             width="800" height="450">
+                        <div class="comparison-slider__img-wrapper comparison-slider__img-wrapper--before">
+                            <img id="comparison-before-img" src="" alt="Estado antes de la restauración" class="comparison-slider__img">
+                        </div>
+                        <div class="comparison-slider__img-wrapper comparison-slider__img-wrapper--after">
+                            <img id="comparison-after-img" src="" alt="Estado después de la restauración" class="comparison-slider__img">
+                        </div>
                         
-                        <input type="range" class="comparison-slider__slider" min="0" max="100" value="50" 
-                               aria-label="Control deslizante para comparar imágenes antes y después">
+                        <input type="range" class="comparison-slider__slider" min="0" max="100" value="50" aria-label="Control deslizante para comparar imágenes">
                         <div class="comparison-slider__divider"></div>
-                    </div>
-                    
-                    <div class="comparison-slider__labels">
-                        <span class="comparison-slider__label">Antes</span>
-                        <span class="comparison-slider__label">Después</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Visor 3D de Artefactos -->
         <section class="model-viewer-section section-padding" aria-labelledby="model-viewer-title">
             <div class="container">
                 <h2 id="model-viewer-title" class="model-viewer__title">Exploración en 3D</h2>
-                <p class="model-viewer__subtitle">Interactúa con el modelo 3D del artefacto restaurado</p>
-                
                 <div class="model-viewer__container">
                     <div class="model-viewer__element">
-                        <img src="https://via.placeholder.com/800x500?text=Modelo+3D+del+Artefacto" 
-                             alt="Vista previa del modelo 3D del artefacto arqueológico restaurado"
-                             width="800" height="500">
+                        <img src="https://placehold.co/800x500/594C45/F8F5F2?text=Modelo+3D" alt="Vista previa del modelo 3D del artefacto">
                         <div class="model-viewer__controls">
-                            <button class="model-viewer__control" id="rotate-model" aria-label="Rotar modelo 3D">🔄 Rotar</button>
-                            <button class="model-viewer__control" id="reset-model" aria-label="Reiniciar vista del modelo 3D">↺ Reiniciar</button>
+                            <button class="model-viewer__control" id="rotate-model">🔄 Rotar</button>
+                            <button class="model-viewer__control" id="reset-model">↺ Reiniciar</button>
                         </div>
                     </div>
-                    
                     <div class="model-viewer__info">
                         <h3>Detalles del Artefacto</h3>
                         <ul>
                             <li><strong>Material:</strong> Cerámica policromada</li>
                             <li><strong>Período:</strong> Clásico Maya (250-900 d.C.)</li>
-                            <li><strong>Dimensiones:</strong> 25cm × 18cm × 15cm</li>
-                            <li><strong>Técnicas de restauración:</strong> Limpieza láser, consolidación, reintegración cromática</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Mapa Interactivo -->
-        <section class="project-map section-padding" aria-labelledby="map-title">
-            <div class="container">
-                <h2 id="map-title" class="project-map__title">Ubicación del Proyecto</h2>
-                <p class="project-map__subtitle">Localización geográfica del sitio de intervención</p>
-                
-                <div class="project-map__container">
-                    <div id="map" class="project-map__element" aria-label="Mapa interactivo de la ubicación del proyecto">
-                        <img src="https://via.placeholder.com/800x400?text=Mapa+de+Ubicación" 
-                             alt="Mapa que muestra la ubicación del proyecto en Palenque, México"
-                             width="800" height="400">
-                    </div>
-                    
-                    <div class="project-map__info">
-                        <h3>Contexto Arqueológico</h3>
-                        <p>El proyecto se localiza en la zona arqueológica de Palenque, Chiapas, México, uno de los sitios más importantes de la cultura maya.</p>
-                        
-                        <div class="map-details">
-                            <div class="map-detail">
-                                <span class="map-detail__icon" aria-hidden="true">🌎</span>
-                                <span class="map-detail__text">Región: Mesoamérica</span>
-                            </div>
-                            <div class="map-detail">
-                                <span class="map-detail__icon" aria-hidden="true">🧭</span>
-                                <span class="map-detail__text">Coordenadas: 17.483° N, 92.046° W</span>
-                            </div>
-                            <div class="map-detail">
-                                <span class="map-detail__icon" aria-hidden="true">🏔️</span>
-                                <span class="map-detail__text">Altitud: 150 msnm</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Detalles del Proyecto -->
-        <section class="project-details section-padding">
-            <div class="container">
-                <div class="project-details__content">
-                    <div class="project-details__main">
-                        <h2>Proceso de Intervención</h2>
-                        <p>El proyecto de restauración del Templo de las Inscripciones requirió un abordaje multidisciplinario que combinó técnicas tradicionales con tecnología de vanguardia.</p>
-                        
-                        <h3>Fases del Proyecto</h3>
-                        <ol class="project-phases">
-                            <li>
-                                <strong>Diagnóstico y documentación</strong>
-                                <p>Análisis exhaustivo del estado de conservación mediante fotogrametría, escaneo 3D y análisis de materiales.</p>
-                            </li>
-                            <li>
-                                <strong>Intervención estructural</strong>
-                                <p>Consolidación de elementos estructurales comprometidos y estabilización de sectores en riesgo.</p>
-                            </li>
-                            <li>
-                                <strong>Limpieza y conservación</strong>
-                                <p>Limpieza laser controlada de superficies pétreas y aplicación de tratamientos de conservación.</p>
-                            </li>
-                            <li>
-                                <strong>Documentación final</strong>
-                                <p>Registro exhaustivo post-intervención y elaboración de protocolos de mantenimiento.</p>
-                            </li>
-                        </ol>
-                    </div>
-                    
-                    <div class="project-details__sidebar">
-                        <div class="project-techniques">
-                            <h3>Técnicas Utilizadas</h3>
-                            <ul>
-                                <li>Fotogrametría digital</li>
-                                <li>Limpieza láser</li>
-                                <li>Consolidación pétrea</li>
-                                <li>Análisis espectrográfico</li>
-                                <li>Monitorización estructural</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="project-team">
-                            <h3>Equipo de Trabajo</h3>
-                            <ul>
-                                <li>Dr. Elena Torres - Directora de Proyecto</li>
-                                <li>Arq. Miguel Ángel Ruiz - Restaurador</li>
-                                <li>Dra. Laura Mendoza - Arqueóloga</li>
-                                <li>Ing. Carlos Jiménez - Estructuras</li>
-                                <li>Lic. Sofía Hernández - Documentación</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Galería Adicional -->
-        <section class="project-gallery section-padding" aria-labelledby="gallery-title">
-            <div class="container">
-                <h2 id="gallery-title" class="project-gallery__title">Galería del Proceso</h2>
-                
-                <div class="project-gallery__grid">
-                    <figure class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300?text=Proceso+1" 
-                             alt="Proceso de documentación inicial con equipo de fotogrametría" 
-                             width="400" height="300">
-                        <figcaption>Documentación fotogramétrica</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300?text=Proceso+2" 
-                             alt="Trabajo de limpieza laser en detalle arquitectónico" 
-                             width="400" height="300">
-                        <figcaption>Limpieza con tecnología láser</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300?text=Proceso+3" 
-                             alt="Análisis de muestras en laboratorio con microscopio" 
-                             width="400" height="300">
-                        <figcaption>Análisis de muestras en laboratorio</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- Navegación entre proyectos -->
-        <section class="project-navigation section-padding" aria-label="Navegación entre proyectos">
-            <div class="container">
-                <div class="project-navigation__container">
-                    <a href="proyecto-detalle.html?id=1" class="project-navigation__link project-navigation__link--prev">
-                        <span>← Proyecto Anterior</span>
-                        <span>Templo Mayor</span>
-                    </a>
-                    
-                    <a href="proyectos.html" class="project-navigation__link project-navigation__link--all">
-                        <span>Ver todos los proyectos</span>
-                    </a>
-                    
-                    <a href="proyecto-detalle.html?id=2" class="project-navigation__link project-navigation__link--next">
-                        <span>Próximo Proyecto →</span>
-                        <span>Frescos de Pompeya</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
+        </main>
     
-    <!-- Footer importado -->
     <div id="footer-container"></div>
     
-    <!-- Scripts -->
-    <script src="./js/main.js"></script>
-    <script src="./js/components/proyecto-detalle.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/components/proyecto-detalle.js"></script>
 </body>
 </html>
